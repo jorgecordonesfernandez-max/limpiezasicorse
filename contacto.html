@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Limpiezas Icorse</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== HEADER CON TÍTULO CURVADO ===== -->
+  <header class="header-icorse">
+    <div class="container header-stack">
+      <!-- TÍTULO CURVADO -->
+      <div class="titulo-arco-wrap">
+        <svg viewBox="0 0 800 240" preserveAspectRatio="xMidYMid meet" class="titulo-svg" aria-label="Limpiezas Icorse">
+          <path id="curvaIcorse" d="M 60 180 A 620 620 0 0 1 740 180" fill="none"></path>
+          <text text-anchor="middle">
+            <textPath href="#curvaIcorse" startOffset="50%">
+              LIMPIEZAS ICORSE
+            </textPath>
+          </text>
+        </svg>
+      </div>
+
+      <!-- Subtítulo -->
+      <p class="subheader">Ponte en contacto de manera rapida y sencilla</p>
+
+      <!-- Navegación -->
+      <nav class="nav-header">
+        <a href="index.html">Inicio</a>
+        <a href="informacion.html">Servicios</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CONTENIDO PRINCIPAL ===== -->
+  <main class="seccion-info">
+    <h1 class="titulo-seccion">Descarga aquí la plantilla y cuentanos más sobre el servicio que necesitas</h1>
+    <section class="info-bloque">
+      <h2>📞 Información de contacto</h2>
+      <p><strong>Teléfono:</strong> +34 664 345 059</p>
+      <p><strong>Correo electrónico:</strong> icorse2019@gmail.com</p>
+      <a href="mailto:icorse2019@gmail.com" class="boton-flotante">📩 Solicitar presupuesto</a>
+      <p><strong>Dirección:</strong> C. Alfolí, 9, 28280 El Escorial, Madrid</p>
+      <p><strong>Horario de atención:</strong> Lunes a Viernes, 09:00 - 18:00</p>
+    </section>
+
+    <section class="info-bloque">
+      <h2>📋 Cómo solicitar un presupuesto</h2>
+      <ol>
+        <li>Indícanos el tipo de servicio (comunidad, garaje o ambos).</li>
+        <li>Deja un número de teléfono o correo electrónico para poder contactarte.</li>
+        <li>Te enviaremos una propuesta personalizada en menos de 24 h.</li>
+      </ol>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2025 Limpiezas Sierra. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ===== ESTILO LOCAL DE ESTA PÁGINA ===== -->
+  <style>
+  /* Mantiene la misma estructura y aspecto que la página de información */
+
+  .seccion-info {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: grid;
+    gap: 30px;
+  }
+
+  .titulo-seccion {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    color: #333;
+    font-weight: 700;
+  }
+
+  .info-bloque {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .info-bloque:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .info-bloque h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #222;
+  }
+
+  .info-bloque p,
+  .info-bloque ol {
+    color: #444;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 8px 0;
+  }
+
+  .info-bloque ol {
+    padding-left: 20px;
+  }
+
+  .boton-flotante {
+    display: inline-block;
+    margin: 15px 0;
+    padding: 12px 20px;
+    background: #ffcc00;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+  }
+
+  .boton-flotante:hover {
+    background: #e6b800;
+  }
+  </style>
+</body>
+</html>

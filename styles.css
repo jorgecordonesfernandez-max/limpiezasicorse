@@ -1,0 +1,834 @@
+/* RESET BÁSICO */
+body {
+  font-family: 'Quicksand';
+  margin: 0;
+  background: #e3e7ff;
+  color: #333;
+}
+
+header h1, header h2 {
+  margin-top: 0;
+}
+
+/* HEADER */
+header {
+  background: 
+    linear-gradient(to bottom right, rgba(137, 198, 239, 0), rgba(171, 211, 235, 0));
+  background-size: cover;
+  background-position: center;
+  color: rgba(11, 11, 14, 0.594);
+  padding: 1rem 1rem;
+  text-align: center;
+  box-shadow: 1 1 1 4px #040404;
+  border-radius: 12px;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  color: rgba(0, 0, 0, 0.719);
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: rgba(0, 0, 0, 0.708);
+}
+
+/* TITULOS */
+h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: rgba(5, 6, 15, 0.776);
+}
+
+h3 {
+  color: hsl(0, 0%, 0%);
+  font-size: 1.2rem;
+}
+
+/* SECCIONES */
+main {
+  padding: 2rem;
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+/* PRODUCTOS / SERVICIOS */
+.contenedor-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  gap: 6rem;               /* separación entre cartas */
+  justify-content: center; /* centra las columnas en el grid */
+  margin-left: -30px; /* desplaza todas las cartas hacia la izquierda */
+}
+
+
+
+
+.producto {
+  perspective: 1000px; /* necesario para ver el giro 3D */
+  width: 250px;
+  height: 300px;
+}
+
+.carta {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 15px;
+}
+
+.producto:hover .carta {
+  transform: rotateY(180deg);
+}
+
+.cara {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  border: 1px solid #5e3c1c;   /* 🔹 Marco negro */
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centra verticalmente */
+  padding: 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.909);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cara.frente img,
+.cara.trasera img {
+  max-height: 100px;
+  max-width: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cara.frente {
+  z-index: 2;
+}
+
+.cara.trasera {
+  transform: rotateY(180deg); /* 👈 asegura que coincida con la delantera */
+}
+
+
+/* BOTONES */
+.pedido-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #3498db;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.pedido-btn:hover {
+  background: #ffffff;
+}
+
+.galeria-videos {
+  text-align: center;
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.galeria-videos h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#abrirGaleria {
+  padding: 12px 30px;
+  font-size: 1.1rem;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#abrirGaleria:hover {
+  background-color: #005fa3;
+}
+
+/* --- Modal --- */
+.modal-video {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-contenido {
+  position: relative;
+  width: 85%;
+  max-width: 1000px;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.modal-contenido video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cerrar {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.controles {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(20,20,20,0.8);
+  padding: 10px;
+}
+
+.controles button {
+  background: #0077cc;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.controles button:hover {
+  background: #005fa3;
+}
+
+
+
+/* TESTIMONIOS */
+.testimonios {
+  background-color: #f9f9f9;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  margin-top: 2rem;
+}
+
+.testimonio {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.galeria-item {
+  position: relative; /* Necesario para posicionar la lupa dentro */
+  display: inline-block;
+}
+
+.galeria-item img {
+  height: 150px;
+  border-radius: 6px;
+  border: 1.5px solid #040404; /* marco blanco */
+  margin: 0 27px; /* separa horizontalmente */
+  box-shadow: 0 5px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+}
+
+.galeria-item:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 8px 14px rgba(0,0,0,0.25);
+}
+
+/* 🔍 Botón de lupa centrado */
+.zoom-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0,0,0,0.4); /* círculo semitransparente */
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0; /* oculta por defecto */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(3px); /* difuminado */
+}
+
+/* Icono dentro del botón */
+.zoom-btn svg {
+  fill: white;
+  width: 22px;
+  height: 22px;
+}
+
+/* Al pasar el ratón aparece la lupa */
+.galeria-item:hover .zoom-btn {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+
+/* FAQ */
+.faq {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.faq summary {
+  cursor: pointer;
+  padding: 1rem;
+  font-weight: bold;
+  list-style: none;
+  position: relative;
+  color: #0a0a0a;
+}
+
+.faq summary::after {
+  content: "➤";
+  position: absolute;
+  right: 1rem;
+  transition: transform 0.3s;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.faq p {
+  padding: 0 1rem 1rem;
+  color: #333;
+}
+
+/* VENTAJAS */
+.ventaja-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.ventaja-grid div {
+  flex: 1 1 250px;
+  background-color: white;
+  padding: 1.2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(to bottom right, #fafafa, #c5b2a3);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 1em;
+}
+
+footer a {
+  color: #000000;
+  text-decoration: underline;
+}
+
+/* BANNER COOKIES */
+#cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(169, 209, 236, 0.95);
+  color: white;
+  padding: 0.8rem;
+  text-align: center;
+  font-size: 0.95rem;
+  z-index: 10000;
+}
+
+#cookie-banner button {
+  margin-left: 1rem;
+  padding: 0.4rem 0.8rem;
+  background: white;
+  color: #bfdef3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* MODAL AVISO LEGAL */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 10001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  color: #333;
+  padding: 1.5rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  text-align: left;
+  position: relative;
+}
+
+.close-legal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #c2e2f7;
+}
+
+.info-bloque {
+  margin-top: 40px; /* cada bloque tendrá separación extra */
+}
+
+
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.lightbox-img {
+  max-height: 70vh;
+  width: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.caption {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  font-style: italic;
+  text-align: center;
+  max-width: 80% ;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.lightbox .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.titulo-seccion {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  color: #333;
+  font-weight: 700;
+  position: relative;
+  transform: translateY(8px); /* 🔽 mueve el texto hacia abajo */
+}
+
+/* --- HERO VIDEO --- */
+.hero-video {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(360px, 55vh, 720px);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 24px auto;
+}
+
+.hero-video__media,
+.hero-video__player {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-video__player {
+  object-fit: cover;
+}
+
+/* Degradado para legibilidad de texto */
+.hero-video::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%);
+  z-index: 1;
+}
+
+/* Overlay de texto y botones */
+.hero-video__overlay {
+  position: relative;
+  z-index: 2;
+  padding: clamp(16px, 5vw, 48px);
+  text-align: center;
+  color: #fff;
+  max-width: 1100px;
+}
+
+.hero-video__kicker {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  opacity: .9;
+  margin: 0 0 .25rem;
+}
+
+.hero-video__title {
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  line-height: 1.1;
+  margin: .25rem 0 .5rem;
+  font-weight: 700;
+}
+
+.hero-video__desc {
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  position: relative;
+  top: -10px; /* sube el texto */
+  opacity: .95;
+}
+
+.hero-video__ctas {
+  display: inline-flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Botones */
+.btn {
+  display: inline-block;
+  border-radius: 999px;
+  padding: .7rem 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .15s ease, opacity .15s ease;
+  backdrop-filter: blur(2px);
+}
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: translateY(0); }
+
+.btn--primary {
+  background: #00A2FF;
+  color: #081017;
+}
+.btn--light {
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.35);
+}
+
+
+/* Contenedor del hero */
+/* Contenedor con la misma relación que el vídeo (iPhone horizontal ≈ 16:9) */
+/* Contenedor con misma relación que el vídeo (iPhone horizontal ≈ 16:9) */
+.hero-video{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 70vh;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Capa de media ocupa todo el hero */
+.hero-video__media{
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Vídeo: cubrir sin barras y encuadrado ABAJO */
+.hero-video .hero-video__player{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;              /* sin barras */
+  object-position: 50% 100% !important;  /* parte inferior */
+}
+
+/* Overlay por encima del vídeo */
+.hero-video__overlay{
+  position: relative;
+  z-index: 1;
+  padding: clamp(16px, 5vw, 48px);
+  text-align: center;
+  color: #fff;
+}
+
+/* Degradado para legibilidad (opcional) */
+.hero-video::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.55));
+  z-index: 0; /* bajo el overlay, sobre el vídeo */
+}
+
+/* Ajuste fino en móviles altos (si hiciera falta) */
+@media (max-width: 480px){
+  .hero-video .hero-video__player{
+    object-position: 50% 100% !important; /* fuerza bottom en móvil */
+  }
+}
+
+
+
+/* ==== LAYOUT GLOBAL CENTRADO ==== */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ==== CABECERA ENCUADRADA ==== */
+header {
+  /* quita padding grande y gradientes fuertes */
+  background: linear-gradient(to bottom right, rgba(13, 13, 13, 0.08), rgba(171,211,235,0.08));
+  color: #0b0b0b;
+  padding: -30;            /* << menos alto */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06); /* sombra limpia */
+  border-radius: 0;      /* cuadrado arriba; cámbialo si quieres redondeo */
+  position: sticky;      /* queda fijo arriba al hacer scroll (opcional) */
+  top: 0;
+  z-index: 1000;
+}
+
+/* línea interna que encuadra el contenido */
+.header-inner {
+  height: 68px;                  /* << altura controlada */
+  display: flex;
+  align-items: center;           /* << centra verticalmente logo/título/nav */
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* bloque marca/título a la izquierda (si lo usas) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #0b0b0b;
+}
+
+/* NAV bien alineado y sin salto hacia abajo */
+nav {
+  margin: 0;                     /* << antes tenías margin-top: 1rem */
+}
+nav a {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;                  /* área clicable */
+  padding: 0 12px;
+  border-radius: 8px;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background .2s ease, color .2s ease, transform .1s ease;
+}
+nav a:hover {
+  background: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
+}
+
+/* separa el contenido del header */
+main { padding: 24px 0; }
+
+/* ==== HERO ENCUADRADO CON LA MISMA ANCHURA ==== */
+.hero-video { margin: 18px auto; }
+
+/* Ancho común */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ===============================
+   CABECERA ICORSE CON TEXTO CURVADO
+==================================*/
+/* que nada recorte el SVG */
+.header-icorse, .titulo-arco-wrap, .titulo-svg { overflow: visible; }
+
+.header-icorse {
+  position: relative;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(137,198,239,.08), rgba(171,211,235,.08));
+  box-shadow: 0 6px 20px rgba(0,0,0,.06);
+  margin: 0;
+  padding: 0px 0 0px;
+}
+
+.header-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ===== SVG DEL TÍTULO CURVADO ===== */
+.titulo-arco-wrap {
+  margin-top: 5px;         /* 🔹 acerca más el texto curvado al borde superior */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+}
+
+.titulo-svg{
+  display:block;
+  width:100%;
+  max-width:780px;   /* MÁS ANCHO que antes */
+  height:120px;      /* algo más alto para respiración superior */
+}
+
+/* fuente grande pero sin estirar demasiado el ancho */
+.titulo-svg text{
+  font-family:'Quicksand',sans-serif;
+  font-size:65px;
+  font-weight:700;
+  letter-spacing:2px;   /* baja de 3px → ocupa menos */
+  text-transform:uppercase;
+  fill:rgba(5,6,15,.92);
+}
+
+.titulo-svg path {
+  stroke: none;
+}
+
+/* ===== SUBTÍTULO ===== */
+.subheader {
+  margin-top: -30px;      /* separación equilibrada */
+  font-size: 22px;
+  font-weight: 600;
+  color: rgba(5,6,15,.82);
+}
+
+/* ===== MENÚ ===== */
+.nav-header {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 20px; /* ← Tamaño de fuente añadido */
+}
+.nav-header a {
+  text-decoration: none;
+  color: rgba(0,0,0,.85);
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background .2s, color .2s, transform .12s;
+}
+.nav-header a:hover {
+  background: rgba(0,0,0,.06);
+  transform: translateY(-1px);
+}
+
+/* ===== HERO AJUSTE ===== */
+.hero-video {
+  position: relative;
+  z-index: 0;
+  margin-top: 8px !important;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .titulo-svg {
+    height: 90px;
+    max-width: 480px;
+  }
+  .titulo-svg text {
+    font-size: 45px;
+  }
+  .subheader {
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+  .nav-header {
+    gap: 16px;
+  }
+  .nav-header a {
+    font-weight: 600;
+    padding: 6px 8px;
+  }
+}
+
+
+
+
